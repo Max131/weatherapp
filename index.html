@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Open Weather API</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <script defer src="https://use.fontawesome.com/releases/v5.15.0/js/all.js"></script> -->
+  </head>
+  <body>
+    <div class="loader">
+      <div class="spin"></div>
+    </div>
+    <div class="card">
+      <header class="header">
+        <figure>
+          <img class="temp-icon" src="" alt="Weather Icon">
+          <figcaption><h2 class="weather-temp"></h2></figcaption>
+        </figure>
+      </header>
+      <div class="card-content">
+        <p class="weather-description"></p>
+        <p><span class="city"></span>, <span class="country"></span></p>
+      </div>
+      <footer class="footer">
+        <ul class="footer-items">
+          <li class="footer-item">
+            <h3>Min</h3>
+            <p class="min-temp"></p>
+          </li>
+          <li class="footer-item">
+            <h3>Sensación</h3>
+            <p class="feels"></p>
+          </li>
+          <li class="footer-item">
+            <h3>Max</h3>
+            <p class="max-temp"></p>
+          </li>
+        </ul>
+      </footer>
+    </div>
+  <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+body {
+  font-style: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../images/other.svg");
+  background-size: cover;
+  background-position: center;
+}
+
+.card {
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.5);
+}
+.card .header {
+  height: 150px;
+  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5) 60%, lightyellow), url("https://picsum.photos/300/150");
+  color: white;
+}
+.card .header figure {
+  margin: 0;
+  display: block;
+  text-align: center;
+  position: relative;
+}
+.card .header h2 {
+  font-size: 1.5rem;
+  margin-top: -1.5rem;
+  font-weight: 400;
+  text-shadow: 1px 1px 2px dimgray, -1px -1px 2px lightsteelblue;
+}
+.card .header img {
+  border-radius: 50%;
+}
+.card .card-content {
+  text-align: center;
+  margin: 30px 10px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+.card .card-content p {
+  margin: 0;
+}
+.card .card-content .weather-description {
+  text-transform: capitalize;
+  font-style: italic;
+  color: slategray;
+}
+.card .card-content .city {
+  color: slate;
+}
+.card .card-content .country {
+  color: lightslategrey;
+}
+.card .footer {
+  border-top: 1px solid lightsteelblue;
+}
+.card .footer .footer-items {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.card .footer .footer-items h3 {
+  margin: 0;
+}
+.card .footer .footer-item {
+  text-align: center;
+}
+.card .footer .footer-item p {
+  margin: 0;
+  padding-top: 0.25rem;
+}
+
+.loader {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+	z-index: 100
+}
+.loader--hidden {
+  display: none;
+}
+.loader .spin {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 8px solid silver;
+  border-right-color: royalblue;
+  -webkit-animation: spinner 0.75s linear infinite;
+          animation: spinner 0.75s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}/*# sourceMappingURL=styles.css.map */
