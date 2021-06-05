@@ -1,113 +1,117 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font: 16px/1.6 system-ui, sans-serif; }
+
 body {
-  font-style: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-image: url("../images/other.svg");
-  background-size: cover;
-  background-position: center;
-}
+  background: url("../images/night.svg") no-repeat center/cover; }
 
-.card {
-  width: 300px;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.5);
-}
-.card .header {
-  height: 150px;
-  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5) 60%, lightyellow), url("https://picsum.photos/300/150");
+h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 900;
   color: white;
-}
-.card .header figure {
-  margin: 0;
-  display: block;
-  text-align: center;
-  position: relative;
-}
-.card .header h2 {
-  font-size: 1.5rem;
-  margin-top: -1.5rem;
-  font-weight: 400;
-  text-shadow: 1px 1px 2px dimgray, -1px -1px 2px lightsteelblue;
-}
-.card .header img {
-  border-radius: 50%;
-}
-.card .card-content {
-  text-align: center;
-  margin: 30px 10px;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-size: 1.2rem;
-}
-.card .card-content p {
-  margin: 0;
-}
-.card .card-content .weather-description {
-  text-transform: capitalize;
-  font-style: italic;
-  color: slategray;
-}
-.card .card-content .city {
-  color: slate;
-}
-.card .card-content .country {
-  color: lightslategrey;
-}
-.card .footer {
-  border-top: 1px solid lightsteelblue;
-}
-.card .footer .footer-items {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
-}
-.card .footer .footer-items h3 {
-  margin: 0;
-}
-.card .footer .footer-item {
-  text-align: center;
-}
-.card .footer .footer-item p {
-  margin: 0;
-  padding-top: 0.25rem;
-}
+  text-shadow: 1px 2px 4px dimgray; }
+
+h2 {
+  font-size: smaller; }
 
 .loader {
-  position: absolute;
-  height: 100%;
-  width: 100%;
   display: grid;
   place-items: center;
-  background-color: rgba(0, 0, 0, 0.6);
-	z-index: 100
-}
-.loader--hidden {
-  display: none;
-}
-.loader .spin {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  border: 8px solid silver;
-  border-right-color: royalblue;
-  -webkit-animation: spinner 0.75s linear infinite;
-          animation: spinner 0.75s linear infinite;
-}
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10; }
+  .loader__hide {
+    display: none; }
+  .loader .spin {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 8px solid #c0c0c011;
+    border-right-color: royalblue;
+    animation: spin 0.7s linear infinite; }
 
-@-webkit-keyframes spinner {
+@keyframes spin {
   100% {
-    transform: rotate(360deg);
-  }
-}
+    transform: rotate(360deg); } }
+.weather {
+  max-width: 300px;
+  border-radius: 4px;
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8));
+  overflow: hidden; }
+  .weather__header {
+    position: relative; }
+    .weather__header img {
+      display: block;
+      max-width: 100%;
+      object-fit: cover; }
+  .weather__temp {
+    font-size: 2.5rem;
+    font-weight: 900;
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    text-shadow: 0 0 10px black;
+    color: white; }
+  .weather__state, .weather__location {
+    text-align: center; }
+  .weather__state {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-transform: capitalize; }
+  .weather__city::after {
+    content: ","; }
+  .weather__conditions {
+    display: flex;
+    margin: 2rem 0; }
+    .weather__conditions > * {
+      flex: 1;
+      text-align: center; }
 
-@keyframes spinner {
-  100% {
-    transform: rotate(360deg);
-  }
-}/*# sourceMappingURL=styles.css.map */
+.search-form {
+  margin: 1rem 1.5rem;
+  display: flex; }
+
+.search-field {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 1.5rem;
+  transition: box-shadow 0.25s; }
+  .search-field:focus-within {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); }
+    .search-field:focus-within .search-button {
+      box-shadow: 0 0 1.5rem inset silver; }
+
+.search-input,
+.search-button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  height: 3rem; }
+
+.search-input {
+  flex: 1;
+  width: calc(100% - 3.25rem);
+  padding: 0 1rem;
+  font-weight: bold; }
+
+.search-button {
+  width: 3rem;
+  display: inline-grid;
+  place-items: center;
+  cursor: pointer;
+  border-radius: 50%; }

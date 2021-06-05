@@ -4,9 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "live-server . --port=5500 --quiet"
+    "live": "live-server . --port=5500 --quiet",
+    "build": "sass --watch css/styles.scss:css/styles.css --sourcemap=none",
+    "start": "yarn live"
   },
   "devDependencies": {
+    "dart-sass": "^1.25.0",
     "live-server": "^1.2.1"
-  }
+  },
+  "dependencies": {}
 }

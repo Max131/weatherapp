@@ -14,11 +14,52 @@
     <div class="loader">
       <div class="spin"></div>
     </div>
-    <div class="card">
-      <header class="header">
+    <h1>Weather App</h1>
+    <div class="weather">
+      <figure class="weather__header">
+        <img src="https://placeimg.com/300/160/nature" alt="weather">
+        <figcaption class="weather__temp" data-temp></figcaption>
+      </figure>
+      <div class="weather__state">
+        <p data-sky></p>
+      </div>
+      <div class="weather__location">
+        <p>
+          <span class="weather__city" data-city></span>
+          <span class="weather__country" data-country></span>
+        </p>
+      </div>
+      <div class="weather__conditions">
+        <div class="weather__humidity">
+          <h2>Humidity</h2>
+          <p data-humidity></p>
+        </div>
+        <div class="weather__wind">
+          <h2>Wind</h2>
+          <p data-wind></p>
+        </div>
+        <div class="weather__visibility">
+          <h2>Visibility</h2>
+          <p data-visibility></p>
+        </div>
+      </div>
+      <form class="search-form">
+        <div class="search-field">
+          <input type="search" class="search-input" name="searchCity">
+          <button type="button" class="search-button">
+              🔍
+          </button>
+        </div>
+      </form>
+    </div>
+   <!--  <div class="card">
+      <header class="card__header">
         <figure>
           <img class="temp-icon" src="" alt="Weather Icon">
-          <figcaption><h2 class="weather-temp"></h2></figcaption>
+          <figcaption>
+            <h2 class="weather-temp">
+            
+            </h2></figcaption>
         </figure>
       </header>
       <div class="card-content">
@@ -41,7 +82,7 @@
           </li>
         </ul>
       </footer>
-    </div>
+    </div> -->
   <script src="app.js"></script>
   </body>
 </html>

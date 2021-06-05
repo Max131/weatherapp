@@ -12,21 +12,20 @@ const getLocationWeather = async () => {
                     const baseURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=es`;
                     const data = await fetch(baseURL);
                     const weatherData = await data.json();
-                    //console.log(weatherData);
-										console.log(baseURL);
-                    document.querySelector('.temp-icon').setAttribute('src', weatherIconURL + weatherData.weather[0].icon + '@2x.png');
-                    document.querySelector('.weather-temp').textContent = Math.round(weatherData.main.temp) + 'ºC';
-                    document.querySelector('.weather-description').textContent = weatherData.weather[0].description;
-                    document.querySelector('.city').textContent = weatherData.name;
-                    document.querySelector('.country').textContent = weatherData.sys.country;
-                    document.querySelector('.min-temp').textContent = Math.round(weatherData.main.temp_min) + 'ºC';
-                    document.querySelector('.feels').textContent = Math.round(parseFloat(weatherData.main.feels_like)) + 'ºC';
-                    document.querySelector('.max-temp').textContent = Math.round(weatherData.main.temp_max) + 'ºC';
+                    // console.log(baseURL);
+                    document.querySelector('[data-temp]').textContent = Math.round(weatherData.main.temp) + 'ºC';
+                    document.querySelector('[data-sky]').textContent = weatherData.weather[0].description;
+                    document.querySelector('[data-city]').textContent = weatherData.name;
+                    document.querySelector('[data-country]').textContent = weatherData.sys.country;
+                    document.querySelector('[data-humidity]').textContent = `${weatherData.main.humidity}%`;
+                    document.querySelector('[data-wind]').textContent = `${weatherData.wind.speed}m/s`;
+                    document.querySelector('[data-visibility]').textContent = `${+weatherData.visibility/1000}km`;
                     setTimeout(() => {
-                        loader.classList.toggle('loader--hidden');
+                        loader.classList.toggle('loader__hide');
                     }, 1500);
                 },
                 err => {
+                    alert('Geolocalization denied or not supported ⚠️');
                     throw(err);
                 },
                 {
