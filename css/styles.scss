@@ -98,6 +98,9 @@ h2{
 	}
 
 }
+.wind-direction{
+  display: inline-block;
+}
 .search-form{
 	margin: 1rem 1.5rem;
 	display: flex;
@@ -109,7 +112,7 @@ h2{
 	&:focus-within{
 		box-shadow: 0 0 15px rgba(black, 40%);
 		.search-button{
-			box-shadow: 0 0 1.5rem inset silver;
+				text-shadow: 0 0 8px rgba(black, 30%);
 		}
 	}
 }
@@ -119,16 +122,15 @@ h2{
 	border: none;
 	outline: none;
 	background: none;
-	height: 3rem;
+	height: 2rem;
 }
 .search-input{
 	flex: 1;
-	width: calc(100% - 3.25rem);
+	width: calc(100% - 2.25rem);
 	padding: 0 1rem;
 	font-weight: bold;
 }
 .search-button{ 
-	width: 3rem;
 	display: inline-grid;
 	place-items: center;
 	cursor: pointer;

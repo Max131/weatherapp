@@ -12,17 +12,18 @@ const getLocationWeather = async () => {
                     const baseURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=es`;
                     const data = await fetch(baseURL);
                     const weatherData = await data.json();
-                    // console.log(baseURL);
+                    console.log(baseURL);
                     document.querySelector('[data-temp]').textContent = Math.round(weatherData.main.temp) + 'ºC';
                     document.querySelector('[data-sky]').textContent = weatherData.weather[0].description;
                     document.querySelector('[data-city]').textContent = weatherData.name;
                     document.querySelector('[data-country]').textContent = weatherData.sys.country;
                     document.querySelector('[data-humidity]').textContent = `${weatherData.main.humidity}%`;
                     document.querySelector('[data-wind]').textContent = `${weatherData.wind.speed}m/s`;
+                    document.querySelector('[data-wind-direction]').style.transform = `rotate(${weatherData.wind.deg}deg)`;
                     document.querySelector('[data-visibility]').textContent = `${+weatherData.visibility/1000}km`;
                     setTimeout(() => {
                         loader.classList.toggle('loader__hide');
-                    }, 1500);
+                    }, 1000);
                 },
                 err => {
                     alert('Geolocalization denied or not supported ⚠️');
